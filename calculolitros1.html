@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<title>Exemplo de soma de dois numeros</title>
+	</head>
+	<body>
+		<p>Digite o tempo e a velocidade media:</p>
+		
+		<input type="text" name="tempo" id="tempoId" placeholder="Digite o tempo da viagem"/>
+		<br />
+		<input type="text" name="velMedia" id="velMediaId" placeholder="Digite a velocidade media"/>
+		<br />
+		<br />
+		<input type="button" value="--- Calcular litros gasto ---" id="btn-exibir"/>
+		<hr />
+		<p id="distanciaID"></p>
+		<input type="hidden" name="preco_gas" id="preco_gasID" placeholder="preço por litro de gasolina"  />
+		<p id="totLitrosID"></p>
+		<hr/>
+		
+		<script type="text/javascript"> 
+		var litros_=0;
+		document.getElementById("btn-exibir").addEventListener("click", function() {
+		  var distanciaFinal = Number(document.getElementById('tempoId').value)* 
+		                   Number(document.getElementById('velMediaId').value);
+						   
+			var km_litro = 12;
+
+			var litros_usa = distanciaFinal / km_litro;
+			
+			document.getElementById('distanciaID').innerHTML = ' distancia total percorrida : ' + distanciaFinal;
+			document.getElementById('totLitrosID').innerHTML = ' total de litros gastos : ' + litros_usa.toFixed(2) ;
+			document.getElementById('preco_gasID').setAt("type","text");
+			/*
+			document.getElementById('distanciaID').value = ' distancia total percorrida : ' + distanciaFinal;
+			document.getElementById('totLitrosID').value = ' total de litros gastos : ' + litros_usa;
+			window.location.reload()*/
+		}); 
+		</script>
+	</body>
+</html>
